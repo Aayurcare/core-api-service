@@ -1,6 +1,6 @@
-const { createJsonResponse } = require("../helpers/responseGenerator");
-const Plan = require("../models/Plan");
-const PlanEnquiry = require("../models/PlanEnquiry");
+const { createJsonResponse } = require("../../../helpers/responseGenerator");
+const Plan = require("../../../models/Plan");
+const PlanEnquiry = require("../../../models/PlanEnquiry");
 
 module.exports.getAllWellnessPlans = async () => {
   const plans = await Plan.find({});

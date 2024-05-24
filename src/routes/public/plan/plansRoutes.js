@@ -1,11 +1,10 @@
 var express = require("express");
-const verifyToken = require("../middleware/jwtFilter");
 var router = express.Router();
-const { ERROR, SUCCESS } = require("../constants/jsonMessages");
+const { ERROR, SUCCESS } = require("../../../constants/jsonMessages");
 const {
   getAllWellnessPlans,
   savePlanEnquiry,
-} = require("../services/planService");
+} = require("./planService");
 
 //***** Plans Routes *****/
 
@@ -18,4 +17,5 @@ router.get("/", async function (req, res) {
   const response = await getAllWellnessPlans();
   res.status(response.status).json(response);
 });
+
 module.exports = router;

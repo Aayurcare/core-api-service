@@ -1,8 +1,7 @@
 var express = require("express");
-const verifyToken = require("../../middleware/jwtFilter");
 var router = express.Router();
-const { ERROR, SUCCESS } = require("../../constants/jsonMessages");
-const { createPlan } = require("../../services/admin/adminPlanService");
+const { ERROR, SUCCESS } = require("../../../constants/jsonMessages");
+const { createPlan } = require("./adminPlanService");
 
 //***** Admin Plan Routes *****/
 

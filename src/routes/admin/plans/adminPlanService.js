@@ -1,5 +1,5 @@
-const Plan = require("../../models/Plan");
-const { createJsonResponse } = require("../../helpers/responseGenerator");
+const Plan = require("../../../models/Plan");
+const { createJsonResponse } = require("../../../helpers/responseGenerator");
 
 module.exports.createPlan = async (plan) => {
   console.log(plan);
