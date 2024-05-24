@@ -42,7 +42,7 @@ module.exports.registerRoutes = (app) => {
   app.use("/v1/plans", planRoutes);
   
   //CUSTOMER ROUTES
-  app.use("/v1/user",customerAccountRoutes);
+  app.use("/v1/account",customerAccountRoutes);
 
 
   //Admin routes

@@ -1,20 +1,26 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
  
-const customerSchema = new Schema({
+
+/**
+ * Admins can also be an employee, or a super admin 
+ * based on the role that it has been assigned to. 
+ */
+
+const adminSchema = new Schema({
   firstName : String,
   lastName : String, 
   email : String, 
   contactNumber : Number, 
   password : String, 
   dob : String,
+  role : String,
   lastLogin : Date,
   createdAt: {
     type: Date,
     default: Date.now,
   },
-
 });
  
 
-module.exports = mongoose.model("Customer", customerSchema);
+module.exports = mongoose.model("Admin", adminSchema);
