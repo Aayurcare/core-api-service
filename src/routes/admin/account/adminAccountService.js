@@ -1,5 +1,1 @@
-
-
-module.exports.getAdminAccount = ()=>{
-
-}
+module.exports.getAdminAccount = () => {};
