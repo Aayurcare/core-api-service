@@ -31,10 +31,11 @@ app.use((req, res, next) => {
 require("./src/config/dbConfig").connect();
 require("./src/routes").registerRoutes(app);
 
-app.listen(PORT, (error) => {
+app.listen(process.env.PORT || PORT, (error) => {
   if (!error)
     console.log(
-      "Server is Successfully Running, and App is listening on port " + PORT
+      "Server is Successfully Running, and App is listening on port " +
+        process.env.PORT || PORT
     );
   else console.log("Error occurred, server can't start", error);
 });
