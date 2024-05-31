@@ -16,6 +16,10 @@ phases:
 artifacts:
   files:
     - app.js
-    - node_modules/
-    - src/
     - package.json
+    - package-lock.json
+    - src/**
+    - public/**
+    - config/**
+    - .env
+  discard-paths: yes
