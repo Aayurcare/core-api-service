@@ -23,4 +23,6 @@ artifacts:
     - public/**
     - config/**
     - .env
+    - node_modules/**/*
+    - dist/**/*
   discard-paths: yes
