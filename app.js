@@ -1,17 +1,11 @@
 const path = require("path");
 
-console.log("Current directory:", __dirname);
-console.log(
-  "Resolved dbConfig path:",
-  path.resolve(__dirname, "./src/config/dbConfig")
-);
-
 const express = require("express");
 var bodyParser = require("body-parser");
 
 const app = express();
 
-const PORT = 3001;
+const PORT = 80;
 const cors = require("cors");
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -39,7 +33,7 @@ app.use((req, res, next) => {
 // require("./src/config/dbConfig").connect();
 // require("./src/routes").registerRoutes(app);
 
-app.listen(8080, (error) => {
+app.listen(PORT, (error) => {
   if (!error)
     console.log(
       "Server is Successfully Running, and App is listening on port " + PORT
