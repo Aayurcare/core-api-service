@@ -1,3 +1,11 @@
+const path = require("path");
+
+console.log("Current directory:", __dirname);
+console.log(
+  "Resolved dbConfig path:",
+  path.resolve(__dirname, "./src/config/dbConfig")
+);
+
 const express = require("express");
 var bodyParser = require("body-parser");
 
