@@ -2,10 +2,10 @@ const adminPlanRoutes = require("./admin/plans/adminPlanRoutes");
 const adminAccountRoutes = require("./admin/account/adminAccountRoutes");
 const authRoutes = require("./auth/authRoutes");
 const planRoutes = require("./public/plan/plansRoutes");
+const adminEnquiriesRoutes = require("./admin/enquiries/adminEnquiriesRoutes");
 const { expressjwt } = require("express-jwt");
 
 const { JWT_SECRET } = require("../constants/keys");
-
 
 const customerAccountRoutes = require("./customer/account/customerAccountRoute");
 
@@ -38,16 +38,16 @@ module.exports.registerRoutes = (app) => {
   });
 
   //OPEN ROUTES
-  app.use("/v1/auth",authRoutes);
+  app.use("/v1/auth", authRoutes);
   app.use("/v1/plans", planRoutes);
-  
-  //CUSTOMER ROUTES
-  app.use("/v1/account",customerAccountRoutes);
 
+  //CUSTOMER ROUTES
+  app.use("/v1/account", customerAccountRoutes);
 
   //Admin routes
   app.use("/v1/admin", adminAccountRoutes);
   app.use("/v1/admin/plans", adminPlanRoutes);
+  app.use("/v1/admin/plans/enquiries", adminEnquiriesRoutes);
 
   console.log("Registered routes");
 };

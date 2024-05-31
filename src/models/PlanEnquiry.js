@@ -7,6 +7,8 @@ const planEnquirySchema = new Schema({
   email: String,
   mobileNumber: Number,
   preferredLanguage: String,
+  status: String,
+  comments: Array,
   age: Number,
   createdAt: {
     type: Date,
