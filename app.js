@@ -36,8 +36,8 @@ app.use((req, res, next) => {
   next();
 });
 
-require("./src/config/dbConfig").connect();
-require("./src/routes").registerRoutes(app);
+// require("./src/config/dbConfig").connect();
+// require("./src/routes").registerRoutes(app);
 
 app.listen(PORT, (error) => {
   if (!error)
