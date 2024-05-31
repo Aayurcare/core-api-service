@@ -16,3 +16,6 @@ phases:
 artifacts:
   files:
     - app.js
+    - node_modules/
+    - src/
+    - package.json
