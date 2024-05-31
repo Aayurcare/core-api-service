@@ -2,8 +2,10 @@ const adminPlanRoutes = require("./admin/plans/adminPlanRoutes");
 const adminAccountRoutes = require("./admin/account/adminAccountRoutes");
 const authRoutes = require("./auth/authRoutes");
 const planRoutes = require("./public/plan/plansRoutes");
-const adminEnquiriesRoutes = require("./admin/enquiries/adminEnquiriesRoutes");
+
 const { expressjwt } = require("express-jwt");
+
+const adminEnquiriesRoutes = require("./admin/enquiries/adminEnquiriesRoutes");
 
 const { JWT_SECRET } = require("../constants/keys");
 
