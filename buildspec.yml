@@ -8,6 +8,7 @@ phases:
     commands:
       - echo Installing source NPM dependencies...
       - npm install
+      - ls
   post_build:
     commands:
       - echo Build completed on `date`
