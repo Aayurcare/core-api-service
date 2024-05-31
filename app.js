@@ -39,7 +39,7 @@ app.use((req, res, next) => {
 // require("./src/config/dbConfig").connect();
 // require("./src/routes").registerRoutes(app);
 
-app.listen(PORT, (error) => {
+app.listen(8080, (error) => {
   if (!error)
     console.log(
       "Server is Successfully Running, and App is listening on port " + PORT
