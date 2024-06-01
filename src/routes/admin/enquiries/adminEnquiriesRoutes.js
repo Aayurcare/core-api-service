@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-const { getAllEnquiries, getEnquiry } = require("./AdminEnquiriesService");
+const { getAllEnquiries, getEnquiry } = require("./adminEnquiriesService");
 
 //***** Admin Enquiries Routes /v1/admin/plans/enquiries *****/
 
