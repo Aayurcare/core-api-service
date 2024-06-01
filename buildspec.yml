@@ -9,7 +9,7 @@ phases:
       - echo Installing source NPM dependencies...
       - npm install
       - pwd
-      - cp src/ /var/app/current/
+      - cp -r src/ /var/app/current/
       - ls
   post_build:
     commands:
