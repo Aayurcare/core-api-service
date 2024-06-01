@@ -10,7 +10,6 @@ phases:
       - npm install
       - pwd
       - ls
-  build:
   post_build:
     commands:
       - echo Build completed on `date`
