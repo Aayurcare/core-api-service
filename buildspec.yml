@@ -9,13 +9,13 @@ phases:
       - echo Installing source NPM dependencies...
       - npm install
       - pwd
+      - cp src/ /var/app/current/
       - ls
   post_build:
     commands:
       - echo Build completed on `date`
-      - zip -r my-node-app.zip .
 
 artifacts:
   files:
-    - my-node-app.zip
+    - "**/*"
   discard-paths: yes
