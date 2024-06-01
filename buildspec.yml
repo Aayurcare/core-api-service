@@ -9,13 +9,17 @@ phases:
       - echo Installing source NPM dependencies...
       - npm install
       - pwd
-      - cp -r src/ /var/app/current/
       - ls
   post_build:
     commands:
       - echo Build completed on `date`
+      - cp -r src/ /var/app/current/
 
 artifacts:
+  type: zip
   files:
-    - "**/*"
+    - package.json
+    - app.js
+    - "src/**/*"
+    - .ebextensions/**/*
   discard-paths: yes
