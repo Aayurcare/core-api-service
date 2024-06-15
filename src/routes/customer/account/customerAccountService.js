@@ -1,5 +1,5 @@
 const { createJsonResponse } = require("../../../helpers/responseGenerator");
 
-module.exports.getCustomerProfile = async (admin) => {
-    return createJsonResponse(200,admin);
+module.exports.getCustomerProfile = async (user) => {
+  return createJsonResponse(200, user);
 };

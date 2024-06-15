@@ -10,6 +10,7 @@ const planEnquirySchema = new Schema({
   status: String,
   comments: Array,
   age: Number,
+  planDetails: Object,
   createdAt: {
     type: Date,
     default: Date.now,

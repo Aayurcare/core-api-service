@@ -5,7 +5,7 @@ const planRoutes = require("./public/plan/plansRoutes");
 
 const { expressjwt } = require("express-jwt");
 
-const adminManageEnquiriesRoutes = require("./admin/enquiries/adminEnquiriesRoutes");
+const adminManageEnquiriesRoutes = require("./admin/enquiries/adminEnquiriesRoutes1");
 
 const { JWT_SECRET } = require("../constants/keys");
 
@@ -21,8 +21,6 @@ module.exports.registerRoutes = (app) => {
         "/v1/user/login",
         "/v1/plans/enquiry",
         "/v1/plans",
-        "/v1/auth/owners/login/",
-        "/v1/admin/plans",
       ],
     })
   );

@@ -7,6 +7,7 @@ module.exports.getAllWellnessPlans = async () => {
   const formattedData = plans.reduce((acc, plan) => {
     const category = plan.category;
     const planDetails = {
+      _id: plan._id,
       planName: plan.planName,
       price: plan.price,
       days: plan.days,
@@ -29,6 +30,15 @@ module.exports.getAllWellnessPlans = async () => {
 };
 
 module.exports.savePlanEnquiry = async (enquiry) => {
+  const { planId, planName, category, price, days } = enquiry.planDetails;
+  const planDetails = {
+    planId,
+    planName,
+    category,
+    price,
+    days,
+  };
+  enquiry.planDetails = planDetails;
   const response = await PlanEnquiry.create(enquiry);
   return createJsonResponse(200, response);
 };

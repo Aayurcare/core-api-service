@@ -26,11 +26,13 @@ module.exports.registerCustomer = async (customer) => {
     var encryptedPassword = await bcrypt.hash(password, 10);
     customer.password = encryptedPassword;
 
-    const savedCustomer = Customer.create(customer);
+    const savedCustomer = await Customer.create(customer);
     const customerObject = savedCustomer.toObject();
     delete customerObject.password;
     return createJsonResponse(200, customerObject);
   } catch (error) {
+    console.log(error);
+
     return createJsonResponse(400, "Unable to save data, try again.");
   }
 };
@@ -38,6 +40,14 @@ module.exports.registerCustomer = async (customer) => {
 module.exports.loginCustomer = async (customer) => {
   try {
     const { contactNumber, password } = customer;
+
+    if (!contactNumber || !password) {
+      return {
+        status: 400,
+        error: "No credentials provided.",
+      };
+    }
+
     const fetchedCustomer = await Customer.findOne({ contactNumber });
 
     //customer is not found in database
@@ -47,8 +57,9 @@ module.exports.loginCustomer = async (customer) => {
         error: "Customer not found.",
       };
     }
-    console.log(fetchedCustomer);
-    console.log(password);
+
+    const customerObj = fetchedCustomer.toObject();
+    delete customerObj["password"];
     //Check if passwords are equals
     if (await bcrypt.compare(password, fetchedCustomer.password)) {
       console.log("Logging in", fetchedCustomer._id);
@@ -56,6 +67,7 @@ module.exports.loginCustomer = async (customer) => {
       return {
         status: 200,
         token: token,
+        data: customerObj,
       };
     }
 
