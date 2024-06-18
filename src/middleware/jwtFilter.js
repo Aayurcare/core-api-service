@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../constants/keys");
 const Customer = require("../models/Customer");
+const Admin = require("../models/Admin");
 
 // Middleware to verify admin token
 const verifyAdminToken = (req, res, next) => {
@@ -21,7 +22,7 @@ const verifyAdminToken = (req, res, next) => {
           }
           console.log("Filter ", decode);
 
-          const customer = await Customer.findOne({ _id: decode.id });
+          const customer = await Admin.findOne({ _id: decode.id });
           if (!customer) {
             return res.status(404).send({ message: "User not found" });
           }

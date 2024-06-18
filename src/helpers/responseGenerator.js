@@ -1,9 +1,8 @@
-const { ERROR } = require("../constants/jsonMessages")
+const { ERROR } = require("../constants/jsonMessages");
 
-
-module.exports.createJsonResponse = (statusCode,data) =>{
-    if(statusCode >= 400){
-        return { status : statusCode, error : data}
-    }
-    return {status: statusCode,data}
-}
+module.exports.createJsonResponse = (statusCode, data) => {
+  if (statusCode >= 400) {
+    return { status: statusCode, error: data };
+  }
+  return { status: statusCode, data };
+};
