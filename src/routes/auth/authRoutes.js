@@ -10,6 +10,8 @@ const {
   loginAdmin,
   registerAdmin,
 } = require("./authService");
+const { verifyCustomerToken } = require("../../middleware/jwtFilter");
+const { verifyOTP, requestOtp } = require("./otpService");
 
 //***** Account Routes *****/
 
@@ -32,10 +34,25 @@ router.post("/user/login", async function (req, res, next) {
   res.status(response.status).json(response);
 });
 
+router.post("/user/register/otp/verify", async (req, res, next) => {
+  var customer = req.body;
+  const response = await verifyOTP(customer);
+  return res.status(response.status).json(response);
+});
+
+router.post("/user/register/otp/request", async (req, res, next) => {
+  const response = await requestOtp(req.body);
+  return res.status(response.status).json(response);
+});
+
 router.post("/user/register", async (req, res, next) => {
   var customer = req.body;
   const response = await registerCustomer(customer);
   return res.status(response.status).json(response);
+});
+
+router.get("/user/session", verifyCustomerToken, async (req, res, next) => {
+  res.status(200).json({ data: req.user });
 });
 
 module.exports = router;
