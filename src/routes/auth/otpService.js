@@ -18,7 +18,7 @@ module.exports.requestOtp = async (request) => {
     request.generatedOTP = generatedOTP;
     const savedOTPRequest = await OTPRequest.create(request);
     const savedOTPObj = savedOTPRequest.toObject();
-    delete savedOTPObj["generatedOTP"];
+    // delete savedOTPObj["generatedOTP"];
     return createJsonResponse(200, savedOTPObj);
   } catch (error) {
     console.log(error);
@@ -45,9 +45,9 @@ module.exports.verifyOTP = async (request) => {
         new: true,
       }
     );
-    console.log(fetchedOTPRequest);
+
     if (!fetchedOTPRequest) {
-      return createJsonResponse(400, "OTP not verified.");
+      return createJsonResponse(400, "Invalid OTP, try again.");
     }
 
     return createJsonResponse(200, fetchedOTPRequest);
