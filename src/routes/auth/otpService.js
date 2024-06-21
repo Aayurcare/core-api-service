@@ -1,4 +1,5 @@
 const { createJsonResponse } = require("../../helpers/responseGenerator");
+const Customer = require("../../models/Customer");
 const OTPRequest = require("../../models/OTPRequest");
 
 module.exports.requestOtp = async (request) => {
@@ -14,6 +15,18 @@ module.exports.requestOtp = async (request) => {
         "Contact number invalid." + request.contactNumber.length
       );
     }
+
+    const existingCustomer = await Customer.findOne({
+      contactNumber: request.contactNumber,
+    });
+
+    if (existingCustomer) {
+      return {
+        status: 409,
+        error: "Mobile number already registered, try logging in.",
+      };
+    }
+
     var generatedOTP = Math.floor(1000 + Math.random() * 9000);
     request.generatedOTP = generatedOTP;
     const savedOTPRequest = await OTPRequest.create(request);

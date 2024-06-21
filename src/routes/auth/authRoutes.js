@@ -28,24 +28,24 @@ router.post("/admin/register", async function (req, res, next) {
   res.status(response.status).json(response);
 });
 
-router.post("/user/login", async function (req, res, next) {
+router.post("/customer/login", async function (req, res, next) {
   var customer = req.body;
   const response = await loginCustomer(customer);
   res.status(response.status).json(response);
 });
 
-router.post("/user/register/otp/verify", async (req, res, next) => {
+router.post("/customer/register/otp/verify", async (req, res, next) => {
   var customer = req.body;
   const response = await verifyOTP(customer);
   return res.status(response.status).json(response);
 });
 
-router.post("/user/register/otp/request", async (req, res, next) => {
+router.post("/customer/register/otp/request", async (req, res, next) => {
   const response = await requestOtp(req.body);
   return res.status(response.status).json(response);
 });
 
-router.post("/user/register", async (req, res, next) => {
+router.post("/customer/register", async (req, res, next) => {
   var customer = req.body;
   const response = await registerCustomer(customer);
   return res.status(response.status).json(response);

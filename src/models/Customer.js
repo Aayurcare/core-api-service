@@ -7,7 +7,7 @@ const customerSchema = new Schema({
   email: String,
   contactNumber: Number,
   password: String,
-  dob: String,
+  dob: Date,
   lastLogin: Date,
   profileImageUrl: String,
   gender: String,
