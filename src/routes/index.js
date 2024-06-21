@@ -7,6 +7,7 @@ const { expressjwt } = require("express-jwt");
 
 const adminManageEnquiriesRoutes = require("./admin/enquiries/adminEnquiriesRoutes1");
 const adminSubscriptionRoutes = require("./admin/subscriptions/adminSubscriptionRoutes");
+const adminEmployeeRoutes = require("./admin/employees/adminEmployeeRoutes");
 
 const { JWT_SECRET } = require("../constants/keys");
 
@@ -52,6 +53,7 @@ module.exports.registerRoutes = (app) => {
   app.use("/v1/admin/plans", adminPlanRoutes);
   app.use("/v1/admin/plans/enquiries", adminManageEnquiriesRoutes);
   app.use("/v1/admin/subscriptions", adminSubscriptionRoutes);
+  app.use("/v1/admin", adminEmployeeRoutes);
 
   console.log("Registered routes");
 };

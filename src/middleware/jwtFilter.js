@@ -20,15 +20,15 @@ const verifyAdminToken = (req, res, next) => {
             req.user = undefined;
             return res.status(401).send({ message: "Unauthorized" });
           }
-          console.log("Filter ", decode);
 
-          const customer = await Admin.findOne({ _id: decode.id });
-          if (!customer) {
+          const admin = await Admin.findOne({ _id: decode.id });
+          if (!admin) {
             return res.status(404).send({ message: "User not found" });
           }
-          const customerObj = customer.toObject();
-          delete customerObj["password"];
-          req.user = customerObj;
+          console.log(`Admin ${admin.firstName} is now making the request`);
+          const adminObj = admin.toObject();
+          delete adminObj["password"];
+          req.user = admin;
           next();
         }
       );

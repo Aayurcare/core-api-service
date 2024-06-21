@@ -15,6 +15,8 @@ const adminSchema = new Schema({
   dob: String,
   role: String,
   lastLogin: Date,
+  gender: String,
+  createdBy: String,
   createdAt: {
     type: Date,
     default: Date.now,
