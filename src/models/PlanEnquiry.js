@@ -5,7 +5,7 @@ const planEnquirySchema = new Schema({
   id: String,
   name: String,
   email: String,
-  mobileNumber: Number,
+  contactNumber: Number,
   preferredLanguage: String,
   status: String,
   comments: Array,

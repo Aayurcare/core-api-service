@@ -20,7 +20,7 @@ const verifyAdminToken = (req, res, next) => {
             req.user = undefined;
             return res.status(401).send({ message: "Unauthorized" });
           }
-
+          console.log(decode);
           const admin = await Admin.findOne({ _id: decode.id });
           if (!admin) {
             return res.status(404).send({ message: "User not found" });

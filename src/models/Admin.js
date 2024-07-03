@@ -17,6 +17,7 @@ const adminSchema = new Schema({
   lastLogin: Date,
   gender: String,
   createdBy: String,
+  isActive: Boolean,
   createdAt: {
     type: Date,
     default: Date.now,

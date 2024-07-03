@@ -30,7 +30,11 @@ module.exports.getAllWellnessPlans = async () => {
 };
 
 module.exports.savePlanEnquiry = async (enquiry) => {
+  if (!enquiry.planDetails) {
+    return createJsonResponse(500, "Plan details not provided");
+  }
   const { planId, planName, category, price, days } = enquiry.planDetails;
+
   const planDetails = {
     planId,
     planName,
